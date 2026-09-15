@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Husna Rizkyah — Web Developer & UI/UX Designer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #1B1B2F;
+            --blue: #2F4CFF;
+            --coral: #FF5A3C;
+            --yellow: #FFD23F;
+            --mint: #17C3B2;
+            --paper: #FCFBF7;
+            --paper-dim: #F1EFE6;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.05;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        section {
+            position: relative;
+        }
+
+        .wrap {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        @media (max-width:640px) {
+            .wrap {
+                padding: 0 20px;
+            }
+        }
+
+        /* dot texture */
+        .dots {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            background-image: radial-gradient(currentColor 1.6px, transparent 1.6px);
+            background-size: 16px 16px;
+            opacity: .15;
+        }
+
+        /* ---------- NAV ---------- */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(252, 251, 247, .85);
+            backdrop-filter: blur(8px);
+            border-bottom: 2px solid var(--ink);
+        }
+
+        nav .wrap {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .brand {
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            font-size: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .brand span {
+            color: var(--coral);
+        }
+
+        .navlinks {
+            display: flex;
+            gap: 28px;
+            font-weight: 600;
+            font-size: 14.5px;
+        }
+
+        .navlinks a {
+            position: relative;
+            padding: 4px 0;
+        }
+
+        .navlinks a:hover {
+            color: var(--blue);
+        }
+
+        .navlinks {
+            display: none;
+        }
+
+        @media (min-width:760px) {
+            .navlinks {
+                display: flex;
+            }
+        }
+
+        .nav-cta {
+            background: var(--ink);
+            color: var(--paper);
+            font-weight: 700;
+            font-size: 13.5px;
+            padding: 9px 18px;
+            border-radius: 999px;
+            border: 2px solid var(--ink);
+            transition: transform .15s ease;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+        }
+
+        /* ---------- HERO ---------- */
+        .hero {
+            padding: 88px 0 100px;
+            position: relative;
+            overflow: hidden;
+            background: var(--paper);
+        }
+
+        .hero .dots {
+            color: var(--ink);
+            top: auto;
+            bottom: -40px;
+            height: 220px;
+        }
+
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--yellow);
+            border: 2px solid var(--ink);
+            padding: 7px 14px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 13px;
+            transform: rotate(-2deg);
+            margin-bottom: 28px;
+        }
+
+        .hero-kicker {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--text-secondary, #6b7280);
+            margin: 12px 0 4px;
+        }
+
+        .hero-tag .pulse {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--ink);
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: clamp(44px, 8vw, 92px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            max-width: none;
+            white-space: nowrap;
+        }
+
+        .hero h1 .accent {
+            color: var(--blue);
+        }
+
+        .hero h1 .under {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1 .under::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 6px;
+            height: 16px;
+            background: var(--coral);
+            z-index: -1;
+            opacity: .55;
+        }
+
+        .hero p.lead {
+            margin-top: 26px;
+            font-size: 19px;
+            max-width: 560px;
+            color: #40405a;
+            font-weight: 500;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 38px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 26px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 15px;
+            border: 2.5px solid var(--ink);
+            cursor: pointer;
+        }
+
+        .btn-solid {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .btn-solid:hover {
+            background: var(--blue);
+            border-color: var(--blue);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--ink);
+        }
+
+        .btn-ghost:hover {
+            background: var(--ink);
+            color: var(--paper);
+        }
+
+        .hero-meta {
+            margin-top: 64px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 640px;
+            border-top: 2px solid var(--ink);
+            padding-top: 20px;
+        }
+
+        .hero-meta div b {
+            display: block;
+            font-family: 'Space Grotesk';
+            font-size: 26px;
+        }
+
+        .hero-meta div span {
+            font-size: 13px;
+            color: #666;
+            font-weight: 600;
+        }
+
+        /* ---------- SECTION HEADS ---------- */
+        .sec-head {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+
+        .sec-head h2 {
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .sec-head p {
+            max-width: 360px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        /* ---------- ABOUT (ink block) ---------- */
+        .about {
+            background: var(--ink);
+            color: var(--paper);
+            padding: 96px 0;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 48px;
+        }
+
+        @media(min-width:860px) {
+            .about-grid {
+                grid-template-columns: 0.8fr 1.2fr;
+            }
+        }
+
+        .about-photo {
+            aspect-ratio: 4/5;
+            border-radius: 20px;
+            border: 3px solid var(--yellow);
+            background: linear-gradient(155deg, var(--blue), var(--coral));
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            padding: 24px;
+        }
+
+        .about-photo img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .about-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background: linear-gradient(to top, rgba(0, 0, 0, .55) 0%, rgba(0, 0, 0, 0) 45%);
+        }
+
+        .about-photo .tag {
+            position: relative;
+            z-index: 2;
+            background: var(--paper);
+            color: var(--ink);
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 13.5px;
+            transform: rotate(-3deg);
+        }
+
+        .about-text h3 {
+            font-size: 26px;
+            margin-bottom: 18px;
+            color: var(--yellow);
+        }
+
+        .about-text p {
+            font-size: 17px;
+            color: #D8D8E8;
+            margin-bottom: 16px;
+            max-width: 560px;
+        }
+
+        .badge-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 28px;
+        }
+
+        .badge {
+            font-family: 'Space Grotesk';
+            font-weight: 600;
+            font-size: 13.5px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 2px solid currentColor;
+        }
+
+        /* ---------- SKILLS (paper) ---------- */
+        .skills {
+            padding: 100px 0;
+            background: var(--paper);
+        }
+
+        .skill-cols {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 32px;
+        }
+
+        @media(min-width:760px) {
+            .skill-cols {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .skill-card {
+            border: 2.5px solid var(--ink);
+            border-radius: 18px;
+            padding: 28px;
+            background: var(--paper);
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .skill-card:nth-child(1) {
+            transform: rotate(-1.2deg);
+        }
+
+        .skill-card:nth-child(2) {
+            transform: rotate(0.8deg);
+        }
+
+        .skill-card:nth-child(3) {
+            transform: rotate(-0.6deg);
+        }
+
+        .skill-card:hover {
+            transform: rotate(0deg) translateY(-4px);
+        }
+
+        .skill-card h4 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .dot-ico {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill-card li {
+            font-size: 13.5px;
+            font-weight: 600;
+            padding: 7px 12px;
+            border-radius: 999px;
+            background: var(--paper-dim);
+            border: 1.5px solid #d8d5c8;
+        }
+
+        /* ---------- WORK ---------- */
+        .work {
+            padding: 100px 0;
+            background: var(--paper-dim);
+        }
+
+        .project {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0;
+            border: 2.5px solid var(--ink);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 40px;
+            background: var(--paper);
+        }
+
+        @media(min-width:860px) {
+            .project {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .project:nth-child(even) .project-panel {
+            order: 2;
+        }
+
+        .project-panel {
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+
+        .project-visual {
+            background: var(--ink);
+            min-height: 260px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .browser-mock {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, .35);
+            border: 2px solid rgba(255, 255, 255, .15);
+        }
+
+        .browser-bar {
+            background: #2a2a40;
+            padding: 9px 12px;
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .browser-bar span {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #555;
+        }
+
+        .browser-body {
+            padding: 22px 18px;
+            font-family: 'Space Grotesk';
+        }
+
+        .project-tag {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            padding: 5px 11px;
+            border-radius: 999px;
+            margin-bottom: 14px;
+            width: fit-content;
+        }
+
+        .project-panel h3 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .project-panel p {
+            color: #555;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .tech-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tech-row span {
+            font-size: 12px;
+            font-weight: 700;
+            font-family: 'Space Grotesk';
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1.5px solid var(--ink);
+        }
+
+        .project-link {
+            margin-top: 18px;
+            font-weight: 700;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: var(--blue);
+        }
+
+        /* ---------- EXPERIENCE / EDU (coral block) ---------- */
+        .timeline-sec {
+            background: var(--coral);
+            color: var(--ink);
+            padding: 100px 0;
+        }
+
+        .timeline-sec .sec-head p {
+            color: #3a1608;
+        }
+
+        .tline {
+            border-left: 3px solid var(--ink);
+            padding-left: 28px;
+            display: flex;
+            flex-direction: column;
+            gap: 36px;
+        }
+
+        .titem {
+            position: relative;
+        }
+
+        .titem::before {
+            content: '';
+            position: absolute;
+            left: -35.5px;
+            top: 4px;
+            width: 14px;
+            height: 14px;
+            background: var(--paper);
+            border: 3px solid var(--ink);
+            border-radius: 50%;
+        }
+
+        .titem .when {
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            font-size: 13.5px;
+            opacity: .75;
+            margin-bottom: 6px;
+        }
+
+        .titem h4 {
+            font-size: 21px;
+            margin-bottom: 4px;
+        }
+
+        .titem .org {
+            font-weight: 600;
+            font-size: 14.5px;
+            margin-bottom: 10px;
+        }
+
+        .titem p {
+            font-size: 14.5px;
+            max-width: 640px;
+            color: #3a1608;
+        }
+
+        /* ---------- CERTS (blue block) ---------- */
+        .certs {
+            background: var(--blue);
+            color: var(--paper);
+            padding: 100px 0;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 18px;
+        }
+
+        @media(min-width:700px) {
+            .cert-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .cert-card {
+            background: rgba(255, 255, 255, .08);
+            border: 2px solid rgba(255, 255, 255, .35);
+            border-radius: 16px;
+            padding: 22px 24px;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .cert-ico {
+            flex: 0 0 auto;
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: var(--yellow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            color: var(--ink);
+            font-family: 'Space Grotesk';
+        }
+
+        .cert-card h4 {
+            font-size: 16.5px;
+            margin-bottom: 4px;
+        }
+
+        .cert-card span {
+            font-size: 13px;
+            opacity: .85;
+            font-weight: 500;
+        }
+
+        /* ---------- CONTACT ---------- */
+        .contact {
+            padding: 120px 0 90px;
+            background: var(--paper);
+            text-align: center;
+            position: relative;
+        }
+
+        .contact .dots {
+            color: var(--ink);
+            opacity: .08;
+        }
+
+        .contact h2 {
+            font-size: clamp(38px, 7vw, 72px);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            max-width: 760px;
+            margin: 0 auto 24px;
+        }
+
+        .contact p.lead {
+            font-size: 18px;
+            color: #555;
+            max-width: 480px;
+            margin: 0 auto 40px;
+            font-weight: 500;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 14px;
+        }
+
+        footer {
+            border-top: 2px solid var(--ink);
+            padding: 28px 0;
+            font-size: 13.5px;
+            color: #666;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity .6s ease, transform .6s ease;
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="wrap">
+            <div class="brand">husna<span>.</span>rizkyah</div>
+            <div class="navlinks">
+                <a href="#about">Tentang</a>
+                <a href="#skills">Skill</a>
+                <a href="#work">Karya</a>
+                <a href="#experience">Pengalaman</a>
+                <a href="#contact">Kontak</a>
+            </div>
+            <a href="#contact" class="nav-cta">Hubungi Saya</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="wrap">
+            <div class="hero-tag"><span class="pulse"></span> Terbuka untuk peluang kerja</div>
+            <p class="hero-kicker">Personal Portfolio 2026</p>
+            <h1>Halo!<span class="accent"> saya </span> Husna Rizkyah </h1>
+            <p class="lead">Fresh graduate Sarjana Terapan Manajemen Informatika yang tertarik mengubah kebutuhan
+                pengguna menjadi solusi digital melalui perpaduan Web Development dan UI/UX Design <p class="lead"> mulai dari riset dan
+                perancangan hingga implementasi website yang fungsional.</p>
+            <div class="hero-actions">
+                <a href="#work" class="btn btn-solid">Lihat Karya Saya</a>
+                <a href="#contact" class="btn btn-ghost">Ajak Kolaborasi</a>
+            </div>
+            <div class="hero-meta">
+                <div><b>3.77</b><span>IPK / 4.00</span></div>
+                <div><b>6+</b><span>Proyek Selesai</span></div>
+                <div><b>2</b><span>Sertifikasi Nasional</span></div>
+            </div>
+        </div>
+        <div class="dots"></div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="wrap about-grid">
+            <div class="reveal about-photo">
+                <img src="images/foto-husna.png" alt="Foto Husna Rizkyah">
+                <span class="tag">Palembang, Indonesia</span>
+            </div>
+            <div class="reveal about-text">
+                <h3>Tentang Saya</h3>
+                <p>Saya adalah lulusan Sarjana Terapan (D4) Manajemen Informatika dengan ketertarikan kuat pada Web
+                    Development dan UI/UX Design. Saya menikmati proses mengubah kebutuhan pengguna menjadi solusi
+                    digital yang fungsional, terstruktur, dan mudah digunakan. Berbekal pengalaman mengembangkan
+                    berbagai proyek website serta kemampuan dalam PHP, Laravel, JavaScript, MySQL, dan Figma.</p>
+                <p>Saya terbiasa belajar hal baru, bekerja secara teliti, dan berkolaborasi dalam tim. Saya siap
+                    mengembangkan kemampuan sekaligus memberikan kontribusi nyata dalam lingkungan kerja yang dinamis.
+                </p>
+                <div class="badge-row" style="color:var(--yellow)">
+                    <span class="badge">Web Development</span>
+                    <span class="badge" style="color:var(--coral)">UI/UX Design</span>
+                    <span class="badge" style="color:var(--mint)">Graphic Design</span>
+                    <span class="badge" style="color:var(--blue)">Data Analytics</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <h2>Yang saya kuasai</h2>
+                <p>Kombinasi teknis dan rasa — biar produk bukan cuma jalan, tapi juga enak dipakai.</p>
+            </div>
+            <div class="skill-cols">
+                <div class="skill-card reveal">
+                    <h4><span class="dot-ico" style="background:var(--blue)"></span>Technical</h4>
+                    <ul>
+                        <li>HTML &amp; CSS</li>
+                        <li>JavaScript</li>
+                        <li>PHP &amp; Laravel</li>
+                        <li>MySQL</li>
+                        <li>Python</li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal">
+                    <h4><span class="dot-ico" style="background:var(--coral)"></span>Design</h4>
+                    <ul>
+                        <li>Figma</li>
+                        <li>UI/UX Research</li>
+                        <li>Wireframing</li>
+                        <li>Prototyping</li>
+                        <li>Graphic Design</li>
+                    </ul>
+                </div>
+                <div class="skill-card reveal">
+                    <h4><span class="dot-ico" style="background:var(--mint)"></span>Kolaborasi</h4>
+                    <ul>
+                        <li>Teamwork</li>
+                        <li>Komunikasi</li>
+                        <li>Manajemen Waktu</li>
+                        <li>Problem Solving</li>
+                        <li>Public Speaking</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="work" id="work">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <h2>Karya Terpilih</h2>
+                <p>Beberapa proyek yang paling menggambarkan cara saya berpikir dan membangun produk.</p>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-visual">
+                    <div class="browser-mock">
+                        <div class="browser-bar"><span></span><span></span><span></span></div>
+                        <div class="browser-body" style="background:var(--blue); color:white;">
+                            <div style="font-size:11px; opacity:.7; margin-bottom:6px;">siperan.pln</div>
+                            <div style="font-weight:700; font-size:18px;">SIPERAN Dashboard</div>
+                            <div style="font-size:12px; opacity:.8; margin-top:8px;">Sistem Usulan &amp; Perencanaan —
+                                PT PLN UP3 Ogan Ilir</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-panel">
+                    <span class="project-tag" style="background:var(--yellow);">Tugas Akhir · 2026</span>
+                    <h3>SIPERAN — Sistem Usulan &amp; Perencanaan</h3>
+                    <p>Sistem pendukung keputusan berbasis website untuk PT PLN UP3 Ogan Ilir, menerapkan metode Simple
+                        Additive Weighting (SAW) untuk merekomendasikan prioritas tahun pelaksanaan usulan berdasarkan
+                        lima kriteria penilaian.</p>
+                    <div class="tech-row">
+                        <span>Laravel</span><span>JavaScript</span><span>Bootstrap</span><span>MySQL</span><span>Figma</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-visual" style="background:#0F2E2B;">
+                    <div class="browser-mock">
+                        <div class="browser-bar"><span></span><span></span><span></span></div>
+                        <div class="browser-body" style="background:var(--mint); color:#0F2E2B;">
+                            <div style="font-size:11px; opacity:.7; margin-bottom:6px;">skillproofmarket</div>
+                            <div style="font-weight:700; font-size:18px;">Skill Proof Market</div>
+                            <div style="font-size:12px; opacity:.8; margin-top:8px;">Menghubungkan talent VINIX dengan
+                                UMKM</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-panel">
+                    <span class="project-tag" style="background:var(--mint); color:white;">Studi Independen MSIB ·
+                        2025</span>
+                    <h3>Skill Proof Market (SPM)</h3>
+                    <p>Final project divisi Web Dev &amp; UI/UX bersama PT Vinix Seven Aurum. Berperan dalam riset
+                        pengguna, userflow, wireframe, prototype, hingga front-end development platform yang
+                        mempertemukan talenta digital dengan UMKM.</p>
+                    <div class="tech-row">
+                        <span>Figma</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+                    </div>
+                    <a href="https://husnarizkyah.github.io/SPM-SkillProof-Market/" target="_blank"
+                        class="project-link">Lihat live demo →</a>
+                </div>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-visual" style="background:#3B0F0A;">
+                    <div class="browser-mock">
+                        <div class="browser-bar"><span></span><span></span><span></span></div>
+                        <div class="browser-body" style="background:var(--coral); color:white;">
+                            <div style="font-size:11px; opacity:.7; margin-bottom:6px;">homeletics</div>
+                            <div style="font-weight:700; font-size:18px;">Homeletics</div>
+                            <div style="font-size:12px; opacity:.8; margin-top:8px;">Platform latihan kebugaran di rumah
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-panel">
+                    <span class="project-tag" style="background:var(--coral); color:white;">Praktikum Rekayasa Web ·
+                        2024</span>
+                    <h3>Homeletics</h3>
+                    <p>Website kebugaran yang menampilkan video latihan, rencana latihan bertingkat (pemula–lanjutan),
+                        dan profil pelatih — dirancang responsif agar nyaman diakses dari perangkat apa pun.</p>
+                    <div class="tech-row">
+                        <span>PHP</span><span>CSS</span><span>MySQL</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project reveal">
+                <div class="project-visual" style="background:#241a3d;">
+                    <div class="browser-mock">
+                        <div class="browser-bar"><span></span><span></span><span></span></div>
+                        <div class="browser-body" style="background:var(--ink); color:var(--yellow);">
+                            <div style="font-size:11px; opacity:.7; margin-bottom:6px;">pengarsipan kliping dan surat BPK</div>
+                            <div style="font-weight:700; font-size:18px;">Sistem Arsip BPK</div>
+                            <div style="font-size:12px; opacity:.8; margin-top:8px;">Pengarsipan kliping &amp; surat
+                                digital</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-panel">
+                    <span class="project-tag" style="background:var(--ink); color:white;">Proyek Akhir Magang ·
+                        2025</span>
+                    <h3>Sistem Pengarsipan Kliping &amp; Surat</h3>
+                    <p>Merancang aplikasi pengarsipan berbasis website untuk Subbagian Humas BPK Sumsel, menggantikan
+                        proses manual berbasis Excel. Perancangan memakai Use Case, Activity, Class, dan Sequence
+                        Diagram.</p>
+                    <div class="tech-row">
+                        <span>System Design</span><span>UML</span><span>Database</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- EXPERIENCE + EDUCATION -->
+    <section class="timeline-sec" id="experience">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <h2>Perjalanan Saya</h2>
+                <p>Pendidikan dan pengalaman kerja yang membentuk cara saya bekerja hari ini.</p>
+            </div>
+            <div class="tline reveal">
+                <div class="titem">
+                    <div class="when">Feb — Jun 2025</div>
+                    <h4>Magang, Subbagian Humas &amp; TU</h4>
+                    <div class="org">Badan Pemeriksa Keuangan (BPK) Perwakilan Provinsi Sumatera Selatan</div>
+                    <p>Merancang ±5 desain grafis per hari untuk Instagram resmi instansi, menyusun buku memori 80
+                        halaman, membuat 30+ kliping berita bulanan, dan merancang aplikasi pengarsipan digital sebagai
+                        proyek akhir magang.</p>
+                </div>
+                <div class="titem">
+                    <div class="when">2022 — 2026</div>
+                    <h4>Sarjana Terapan, Manajemen Informatika</h4>
+                    <div class="org">Politeknik Negeri Sriwijaya — IPK 3.77/4.00</div>
+                    <p>Fokus pada pengembangan web, basis data, dan sistem informasi, dengan proyek akhir sistem
+                        pendukung keputusan untuk PT PLN.</p>
+                </div>
+                <div class="titem">
+                    <div class="when">2019 — 2022</div>
+                    <h4>SMA, Ilmu Pengetahuan Sosial (IPS)</h4>
+                    <div class="org">SMA Negeri 18 Palembang — Nilai 88,21/100</div>
+                    <p>Menyelesaikan pendidikan menengah dengan hasil yang konsisten baik di seluruh mata pelajaran.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section class="certs">
+        <div class="wrap">
+            <div class="sec-head reveal">
+                <h2 style="color:white;">Pelatihan &amp; Sertifikasi</h2>
+                <p style="color:#E5EBFF;">Terus belajar lewat program nasional dan pelatihan bersertifikat.</p>
+            </div>
+            <div class="cert-grid reveal">
+                <div class="cert-card">
+                    <div class="cert-ico">JW</div>
+                    <div>
+                        <h4>Junior Web Developer</h4>
+                        <span>Vocational School Graduate Academy — Digital Talent Scholarship, Kominfo (2024)</span>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-ico">UX</div>
+                    <div>
+                        <h4>Studi Independen — Web Dev &amp; UI/UX</h4>
+                        <span>MSIB Batch 3, PT Vinix Seven Aurum (2025)</span>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-ico">EN</div>
+                    <div>
+                        <h4>TOEFL Prediction — Skor 623</h4>
+                        <span>English Domestic (2026)</span>
+                    </div>
+                </div>
+                <div class="cert-card">
+                    <div class="cert-ico">DA</div>
+                    <div>
+                        <h4>Mini Course Data Analytics</h4>
+                        <span>RevoU (2026)</span>
+                    </div>
+                </div>
+                <!-- Tambahkan sertifikasi baru di sini, copy salah satu .cert-card di atas lalu ganti isinya -->
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="dots"></div>
+        <div class="wrap">
+            <h2>Yuk ngobrol soal proyek atau peluang kerja bareng.</h2>
+            <p class="lead">Terbuka untuk peluang sebagai Junior Web Developer, Frontend Developer, UI/UX Designer, maupun Data Analyst.</p>
+                <p class="lead">serta siap terus belajar dan berkembang di lingkungan kerja yang kolaboratif.</p>
+            <div class="contact-links">
+                <a href="mailto:husnarizkyah@gmail.com" class="btn btn-solid">husnarizkyah@gmail.com</a>
+                <a href="https://www.linkedin.com/in/husna-rizkyah" target="_blank" class="btn btn-ghost">LinkedIn</a>
+                <a href="https://instagram.com/husna_rizkyah" target="_blank" class="btn btn-ghost">Instagram</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+            <span>© 2026 Husna Rizkyah.</span>
+            <span>Palembang, Indonesia</span>
+        </div>
+    </footer>
+
+    <script>
+        const els = document.querySelectorAll('.reveal');
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { threshold: 0.15 });
+        els.forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>
