@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -152,29 +153,72 @@
             transform: translateY(-2px);
         }
 
-        .hero-bubbles{
-            position:absolute; right:4%; top:6%; width:460px; height:420px;
-            pointer-events:none; z-index:0; display:none;
+        .hero-bubbles {
+            position: absolute;
+            right: 4%;
+            top: 6%;
+            width: 460px;
+            height: 420px;
+            pointer-events: none;
+            z-index: 0;
+            display: none;
+        }
+
+        @media(min-width:1100px) {
+            .hero-bubbles {
+                display: block;
             }
-            @media(min-width:1100px){ .hero-bubbles{display:block;} }
-            .bubble{
-            position:absolute; border-radius:50%;
-            background:radial-gradient(circle at 35% 30%,
-                #ffffff 0%, #ffe4ef 16%, #ffb8d9 40%, #ff8fc0 62%, #ffc7e0 82%, #ffffff 100%);
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle at 35% 30%,
+                    #ffffff 0%, #ffe4ef 16%, #ffb8d9 40%, #ff8fc0 62%, #ffc7e0 82%, #ffffff 100%);
             box-shadow:
-                inset -10px -10px 24px rgba(255,255,255,.5),
-                0 24px 48px rgba(255,140,190,.28);
-            animation:bubble-float 6s ease-in-out infinite;
-            }
-            .bubble.b1{width:220px; height:220px; top:0; right:100px; animation-duration:7s;}
-            .bubble.b2{width:100px; height:100px; top:150px; right:0; animation-duration:5s; animation-delay:.6s;}
-            .bubble.b3{width:150px; height:150px; top:250px; right:190px; animation-duration:8s; animation-delay:1.2s;}
-            @keyframes bubble-float{
-            0%,100%{transform:translateY(0);}
-            50%{transform:translateY(-20px);}
+                inset -10px -10px 24px rgba(255, 255, 255, .5),
+                0 24px 48px rgba(255, 140, 190, .28);
+            animation: bubble-float 6s ease-in-out infinite;
+        }
+
+        .bubble.b1 {
+            width: 220px;
+            height: 220px;
+            top: 0;
+            right: 100px;
+            animation-duration: 7s;
+        }
+
+        .bubble.b2 {
+            width: 100px;
+            height: 100px;
+            top: 150px;
+            right: 0;
+            animation-duration: 5s;
+            animation-delay: .6s;
+        }
+
+        .bubble.b3 {
+            width: 150px;
+            height: 150px;
+            top: 250px;
+            right: 190px;
+            animation-duration: 8s;
+            animation-delay: 1.2s;
+        }
+
+        @keyframes bubble-float {
+
+            0%,
+            100% {
+                transform: translateY(0);
             }
 
-        /* ---------- HERO ---------- */
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
         .hero {
             padding: 88px 0 100px;
             position: relative;
@@ -317,7 +361,6 @@
             font-weight: 600;
         }
 
-        /* ---------- SECTION HEADS ---------- */
         .sec-head {
             display: flex;
             align-items: flex-end;
@@ -339,7 +382,6 @@
             color: #555;
         }
 
-        /* ---------- ABOUT (ink block) ---------- */
         .about {
             background: var(--ink);
             color: var(--paper);
@@ -368,7 +410,7 @@
             display: flex;
             align-items: flex-end;
             padding: 24px;
-            animation: frame-float 5s ease-in-out infinite;   
+            animation: frame-float 5s ease-in-out infinite;
         }
 
         .about-photo img {
@@ -399,10 +441,18 @@
             font-size: 13.5px;
             transform: rotate(-3deg);
         }
+
         @keyframes frame-float {
-                0%, 100% { transform: rotate(0deg) translateY(0); }
-                50% { transform: rotate(-1.2deg) translateY(-14px); }
+
+            0%,
+            100% {
+                transform: rotate(0deg) translateY(0);
             }
+
+            50% {
+                transform: rotate(-1.2deg) translateY(-14px);
+            }
+        }
 
         .about-text h3 {
             font-size: 26px;
@@ -433,7 +483,6 @@
             border: 2px solid currentColor;
         }
 
-        /* ---------- SKILLS (paper) ---------- */
         .skills {
             padding: 100px 0;
             background: var(--paper);
@@ -506,7 +555,6 @@
             border: 1.5px solid #d8d5c8;
         }
 
-        /* ---------- WORK ---------- */
         .work {
             padding: 100px 0;
             background: var(--paper-dim);
@@ -583,7 +631,6 @@
             font-family: 'Space Grotesk';
         }
 
-        /* ---- phone mockup (for design-only projects: apps, social media) ---- */
         .phone-stack {
             position: relative;
             width: 100%;
@@ -767,7 +814,6 @@
             cursor: pointer;
         }
 
-        /* ---------- EXPERIENCE / EDU (coral block) ---------- */
         .timeline-sec {
             background: var(--coral);
             color: var(--ink);
@@ -827,7 +873,6 @@
             color: #3a1608;
         }
 
-        /* ---------- CERTS (blue block) ---------- */
         .certs {
             background: var(--blue);
             color: var(--paper);
@@ -897,7 +942,6 @@
             background: var(--yellow);
         }
 
-        /* ---------- CONTACT ---------- */
         .contact {
             padding: 120px 0 90px;
             background: var(--paper);
@@ -974,14 +1018,13 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <header class="hero">
         <div class="wrap">
             <div class="hero-bubbles" aria-hidden="true">
                 <span class="bubble b1"></span>
                 <span class="bubble b2"></span>
                 <span class="bubble b3"></span>
-              </div>
+            </div>
             <div class="hero-tag"><span class="pulse"></span> Terbuka untuk peluang kerja</div>
             <p class="hero-kicker">Personal Portfolio 2026</p>
             <h1>Halo, <span class="accent">saya</span><br>Husna Rizkyah</h1>
@@ -999,7 +1042,6 @@
         <div class="dots"></div>
     </header>
 
-    <!-- ABOUT -->
     <section class="about" id="about">
         <div class="wrap about-grid">
             <div class="reveal about-photo">
@@ -1009,7 +1051,8 @@
             <div class="reveal about-text">
                 <h3>Tentang Saya</h3>
                 <p>Saya lulusan Sarjana Terapan Manajemen Informatika dengan ketertarikan kuat pada Web
-                    Development, UI/UX Design, dan System Analytics. Saya menikmati proses mengubah kebutuhan pengguna menjadi solusi
+                    Development, UI/UX Design, dan System Analytics. Saya menikmati proses mengubah kebutuhan pengguna
+                    menjadi solusi
                     digital yang fungsional, terstruktur, dan mudah digunakan. Berbekal pengalaman mengembangkan
                     berbagai proyek website serta kemampuan dalam PHP, Laravel, JavaScript, MySQL, dan Figma.</p>
                 <p>Saya terbiasa belajar hal baru, bekerja secara teliti, dan berkolaborasi dalam tim. Saya siap
@@ -1025,7 +1068,6 @@
         </div>
     </section>
 
-    <!-- SKILLS -->
     <section class="skills" id="skills">
         <div class="wrap">
             <div class="sec-head reveal">
@@ -1045,7 +1087,7 @@
                         <li>Bootstrap</li>
                         <li>Node.js</li>
                         <li>Git & GitHub</li>
-                       
+
                     </ul>
                 </div>
                 <div class="skill-card reveal">
@@ -1077,12 +1119,163 @@
         </div>
     </section>
 
-    <!-- WORK -->
     <section class="work" id="work">
         <div class="wrap">
             <div class="sec-head reveal">
                 <h2>Karya Terpilih</h2>
-                <p>Beberapa proyek yang paling menggambarkan cara saya berpikir dan membangun produk.</p>
+                <p>Berikut beberapa proyek yang pernah saya kerjakan, mulai dari ide, desain, sampai jadi aplikasi.</p>
+            </div>
+
+            <style>
+                .project-visual.poster-visual {
+                    container-type: inline-size;
+                    background: #8d9f6e;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 0;
+                    gap: 0;
+                }
+
+                .poster-row {
+                    --poster-w: 27cqw;
+                    --poster-gap: 3cqw;
+                    display: flex;
+                    gap: var(--poster-gap);
+                    width: max-content;
+                }
+
+                .poster-row+.poster-row {
+                    margin-top: var(--poster-gap);
+                }
+
+                .poster-row:nth-child(1) {
+                    margin-left: calc(var(--poster-w) * -0.3);
+                }
+
+                .poster-row:nth-child(2) {
+                    margin-left: calc(var(--poster-w) * -0.8);
+                }
+
+                .poster {
+                    position: relative;
+                    flex: 0 0 var(--poster-w);
+                    aspect-ratio: 4 / 5;
+                    border-radius: 4px;
+                    overflow: hidden;
+                    background: #6f8052;
+                    box-shadow: 0 8px 18px rgba(40, 50, 25, 0.28);
+                    transition: transform 0.25s ease;
+                }
+
+                .poster img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                }
+
+                .poster-fallback {
+                    display: none;
+                    position: absolute;
+                    inset: 0;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    padding: 6px;
+                    font-size: 10px;
+                    line-height: 1.4;
+                    color: #e9efdc;
+                }
+
+                @media (hover: hover) {
+                    .poster:hover {
+                        transform: translateY(-3px);
+                    }
+                }
+
+                @media (prefers-reduced-motion: reduce) {
+                    .poster {
+                        transition: none;
+                    }
+
+                    .poster:hover {
+                        transform: none;
+                    }
+                }
+            </style>
+
+            <div class="project reveal">
+                <div class="project-visual poster-visual">
+                    <div class="poster-row">
+                        <div class="poster">
+                            <img src="images/nescafe-01.png" alt="Poster NESCAFÉ Cappuccino, Segarkan Dirimu"
+                                loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-01.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-02.png" alt="Poster NESCAFÉ Caramel Macchiato" loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-02.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-03.png" alt="Poster NESCAFÉ Ice Black" loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-03.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-04.png" alt="Poster NESCAFÉ Classic, Morning Bliss" loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-04.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-01.png" alt="" aria-hidden="true" loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-01.jpg</div>
+                        </div>
+                    </div>
+                    <div class="poster-row">
+                        <div class="poster">
+                            <img src="images/nescafe-05.png" alt="Poster NESCAFÉ berbagai varian kaleng" loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-05.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-06.png" alt="Poster NESCAFÉ Latte" loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-06.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-07.png" alt="Poster NESCAFÉ minuman dingin dengan karamel"
+                                loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-07.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-08.png" alt="Poster NESCAFÉ Cappuccino, Segarkan Dirimu (versi 2)"
+                                loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-08.jpg</div>
+                        </div>
+                        <div class="poster">
+                            <img src="images/nescafe-05.png" alt="" aria-hidden="true" loading="lazy"
+                                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                            <div class="poster-fallback">Ganti dengan<br>nescafe-05.jpg</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-panel">
+                    <span class="project-tag" style="background:#5a7a2b; color:white;">Proyek Mandiri · Graphic Design ·
+                        2026</span>
+                    <h3>NESCAFÉ — Multi-Flavor Advertising Campaign</h3>
+                    <p>Eksplorasi desain iklan NESCAFÉ lewat rangkaian poster konseptual berbagai varian rasa, dengan
+                        fokus pada komposisi visual, warna, dan tipografi.</p>
+                    <div class="tech-row">
+                        <span>Canva</span><span>Graphic Design</span>
+                    </div>
+                </div>
             </div>
 
             <div class="project reveal">
@@ -1111,7 +1304,8 @@
             </div>
 
             <div class="project reveal">
-                <div class="project-visual" style="background-color:#0F2E2B; background-image:url('images/spm-bg.png');">
+                <div class="project-visual"
+                    style="background-color:#0F2E2B; background-image:url('images/spm-bg.png');">
                     <div class="browser-mock">
                         <div class="browser-bar"><span></span><span></span><span></span></div>
                         <div class="browser-body" style="background:var(--mint); color:#0F2E2B;">
@@ -1136,7 +1330,6 @@
                 </div>
             </div>
 
-            <!-- DESAIN: Instagram BPK -->
             <div class="project reveal">
                 <div class="project-visual" style="background:#5a4300;">
                     <div class="visual-note">5+ desain / hari</div>
@@ -1182,11 +1375,13 @@
             </div>
 
             <div class="project reveal">
-                <div class="project-visual" style="background-color:#241a3d; background-image:url('images/arsip-bpk-bg.png');">
+                <div class="project-visual"
+                    style="background-color:#241a3d; background-image:url('images/arsip-bpk-bg.png');">
                     <div class="browser-mock">
                         <div class="browser-bar"><span></span><span></span><span></span></div>
                         <div class="browser-body" style="background:var(--ink); color:var(--yellow);">
-                            <div style="font-size:11px; opacity:.7; margin-bottom:6px;">pengarsipan kliping dan surat BPK</div>
+                            <div style="font-size:11px; opacity:.7; margin-bottom:6px;">pengarsipan kliping dan surat
+                                BPK</div>
                             <div style="font-weight:700; font-size:18px;">Sistem Arsip BPK</div>
                             <div style="font-size:12px; opacity:.8; margin-top:8px;">Pengarsipan kliping &amp; surat
                                 digital</div>
@@ -1203,11 +1398,11 @@
                     <div class="tech-row">
                         <span>Figma</span><span>UML</span><span>Kamus Data</span>
                     </div>
-                    <button class="project-link is-btn" onclick="openDemo('videos/arsip-bpk-demo.mp4')">▶ Tonton Demo</button>
+                    <button class="project-link is-btn" onclick="openDemo('videos/arsip-bpk-demo.mp4')">▶ Tonton
+                        Demo</button>
                 </div>
             </div>
 
-            <!-- DESAIN: Aplikasi SatuBitech -->
             <div class="project reveal">
                 <div class="project-visual" style="background:#7a3b00;">
                     <div class="phone-stack">
@@ -1252,7 +1447,8 @@
             </div>
 
             <div class="project reveal">
-                <div class="project-visual" style="background-color:#3B0F0A; background-image:url('images/homeletics-bg.png');">
+                <div class="project-visual"
+                    style="background-color:#3B0F0A; background-image:url('images/homeletics-bg.png');">
                     <div class="browser-mock">
                         <div class="browser-bar"><span></span><span></span><span></span></div>
                         <div class="browser-body" style="background:var(--coral); color:white;">
@@ -1272,19 +1468,18 @@
                     <div class="tech-row">
                         <span>PHP</span><span>CSS</span><span>MySQL</span>
                     </div>
-                    <button class="project-link is-btn" onclick="openDemo('videos/homeletics-demo.mp4')">▶ Tonton Demo</button>
+                    <button class="project-link is-btn" onclick="openDemo('videos/homeletics-demo.mp4')">▶ Tonton
+                        Demo</button>
                 </div>
             </div>
-
         </div>
     </section>
 
-    <!-- EXPERIENCE + EDUCATION -->
     <section class="timeline-sec" id="experience">
         <div class="wrap">
             <div class="sec-head reveal">
                 <h2>Perjalanan Saya</h2>
-                <p>Pendidikan dan pengalaman kerja yang membentuk cara saya bekerja hari ini.</p>
+                <p>Berikut pendidikan dan pengalaman kerja.</p>
             </div>
             <div class="tline reveal">
                 <div class="titem">
@@ -1312,7 +1507,6 @@
         </div>
     </section>
 
-    <!-- CERTIFICATIONS -->
     <section class="certs">
         <div class="wrap">
             <div class="sec-head reveal">
@@ -1324,7 +1518,8 @@
                     <div class="cert-ico">JW</div>
                     <div>
                         <h4>Junior Web Developer</h4>
-                        <span>Vocational School Graduate Academy — Digital Talent Scholarship, Kominfo | Juli 2024</span><br>
+                        <span>Vocational School Graduate Academy — Digital Talent Scholarship, Kominfo | Juli
+                            2024</span><br>
                         <a href="images/sertifikat-jwd.jpg" target="_blank" class="cert-link">Show Credential →</a>
                     </div>
                 </div>
@@ -1380,12 +1575,12 @@
         </div>
     </section>
 
-    <!-- CONTACT -->
     <section class="contact" id="contact">
         <div class="dots"></div>
         <div class="wrap">
             <h2>Let's Work Together!</h2>
-            <p class="lead">Saya terbuka untuk peluang sebagai Junior Web Developer, Frontend Developer, UI/UX Designer, dan System Analyst.</p>
+            <p class="lead">Saya terbuka untuk peluang sebagai Junior Web Developer, Frontend Developer, UI/UX Designer,
+                dan System Analyst.</p>
             <div class="contact-links">
                 <a href="mailto:husnarizkyah@gmail.com" class="btn btn-solid">husnarizkyah@gmail.com</a>
                 <a href="https://www.linkedin.com/in/husna-rizkyah" target="_blank" class="btn btn-ghost">LinkedIn</a>
@@ -1401,7 +1596,6 @@
         </div>
     </footer>
 
-    <!-- VIDEO DEMO MODAL -->
     <div class="video-modal" id="videoModal">
         <div class="video-modal-box">
             <button class="video-modal-close" onclick="closeDemo()">✕</button>
@@ -1436,5 +1630,4 @@
         });
     </script>
 </body>
-
 </html>
